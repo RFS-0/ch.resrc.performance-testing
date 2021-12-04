@@ -1,0 +1,6 @@
+:bibidx: 0
+
+[bibliography]
+= References
+
+* [[jp, {counter:bibidx}]][{bibidx}] Oaks, Scott. Java Performance. O'Reilly Media.

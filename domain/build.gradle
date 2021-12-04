@@ -1,0 +1,5 @@
+dependencies {
+    implementation project(':capabilities')
+
+    testImplementation project(':test-capabilities')
+}

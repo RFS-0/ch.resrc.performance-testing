@@ -1,0 +1,11 @@
+= ch.resrc.testing
+:doctype: book
+:icons: font
+:toc:
+:sectanchors:
+
+include::introduction.adoc[]
+include::performance_testing.adoc[]
+
+include::bibliography.adoc[]
+

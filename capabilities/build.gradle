@@ -1,0 +1,6 @@
+dependencies {
+    api 'com.google.guava:guava'
+    api 'com.google.code.gson:gson'
+    api 'io.vavr:vavr'
+    api 'org.apache.commons:commons-lang3'
+}

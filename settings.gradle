@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+include 'documentation'
+
+include 'capabilities'
+include 'test-capabilities'
+
+include 'domain'
+include 'use-cases'
+

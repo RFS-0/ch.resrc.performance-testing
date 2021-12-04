@@ -1,0 +1,59 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'io.spring.dependency-management' version '1.0.5.RELEASE' apply false
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    group "${group}"
+    version "${version}"
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_16
+        targetCompatibility = JavaVersion.VERSION_16
+    }
+}
+
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'idea'
+    apply plugin: 'jacoco'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencyManagement {
+        dependencies {
+            dependency 'com.google.code.gson:gson:2.8.6'
+            dependency 'com.google.guava:guava:28.0-jre'
+            dependency 'io.vavr:vavr:1.0.0-alpha-3'
+            dependency 'org.apache.commons:commons-lang3:3.1'
+
+            // testing
+            dependency 'org.junit.jupiter:junit-jupiter:5.5.2'
+            dependency 'org.assertj:assertj-core:3.11.1'
+            dependency 'io.rest-assured:rest-assured:3.0.7'
+            dependency 'org.mockito:mockito-core:2.19.0'
+            dependency 'org.hamcrest:hamcrest-core:2.2'
+            dependency 'org.hamcrest:hamcrest:2.2'
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+
+        testLogging {
+            events 'failed', 'skipped'
+        }
+    }
+
+    test {
+        finalizedBy jacocoTestReport
+    }
+
+    jacocoTestReport {
+        dependsOn test
+    }
+}

@@ -1,0 +1,33 @@
+== Performance Testing
+
+The following aspects should be considered before any performance testing is done:
+
+* What category of code should be tested?
+** Microbenchmark
+** Macrobenchmark
+** Mesobenchmark
+
+In the next chapter we are going to have a closer look at each of those aspects.
+
+=== What category of code should be tested?
+
+To be insightful, performance testing should be done in the category which is as close as possible to the real use case.
+
+In order to figure out which category fits best to our need, we take a closer look at each of the categories.
+
+=== What is a Microbenchmark?
+A microbenchmark can be defined as follows:
+[quote, Scott Oaks, '<<jp, Java Performance>>']
+____
+A microbenchmark is a test designed to measure a small unit of performance in order to decide which of multiple alternate implementations is preferable:
+the overhead in creating a thread versus using a thread pool, the time to execute one arithmetic algorithm versus an alternate implementation, and so on.
+____
+
+As implied by this definition we can interpret a microbenchmark to be something similar to a unit test, but in terms of performance.
+
+Although a microbenchmark seems to be a straightforward means to evaluate performance,  there are two factors which make it hard to write them so that they actually measure what is of interest to us:
+
+1. Just-In-Time Compilation
+
+2. Garbage Collection
+
