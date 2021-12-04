@@ -11,10 +11,6 @@ out/
 # Generated files
 .idea/**/contentModel.xml
 
-
-# Generated files
-.idea/**/contentModel.xml
-
 # Sensitive or high-churn files
 .idea/**/dataSources/
 .idea/**/dataSources.ids
