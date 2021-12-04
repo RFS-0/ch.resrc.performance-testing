@@ -1,4 +1,5 @@
 dependencies {
+    implementation project(":capabilities")
     implementation project(":domain")
 
     testImplementation project(":test-capabilities")
