@@ -8,7 +8,7 @@ import ch.resrc.testing.capabilities.validation.ValidationError;
 import ch.resrc.testing.domain.RedBlackTreeSort;
 import ch.resrc.testing.use_cases.sort.ports.events.Sorted;
 import ch.resrc.testing.use_cases.sort.ports.inbound.Sort;
-import ch.resrc.testing.use_cases.sort.ports.outbound.SortedPresenter;
+import ch.resrc.testing.use_cases.sort.ports.outbound.SortPresenter;
 import ch.resrc.testing.use_cases.support.habits.events.Forum;
 import ch.resrc.testing.use_cases.support.outbound_ports.authentication.Client;
 
@@ -20,13 +20,20 @@ import static ch.resrc.testing.use_cases.support.habits.errorhandling.Blame.isCl
 import static io.vavr.API.*;
 import static io.vavr.Predicates.instanceOf;
 
-public class SortUseCase<T extends Comparable<T>> implements Sort<T> {
+public class SortUseCase implements Sort {
+
+    private SortUseCase() {
+    }
+
+    public static SortUseCase create() {
+        return new SortUseCase();
+    }
 
     @Override
-    public void invoke(Input<T> input, SortedPresenter presenter) {
+    public <T extends Comparable<T>> void invoke(Input<T> input, SortPresenter<T> presenter) {
         var forum = new Forum();
 
-        UserInterface ui = new UserInterface(input.client(), presenter);
+        UserInterface<T> ui = new UserInterface<>(input.client(), presenter);
         forum.events().subscribe(ui);
 
         Workflow<T> workflow = new Workflow<>(forum);
@@ -77,22 +84,22 @@ public class SortUseCase<T extends Comparable<T>> implements Sort<T> {
         }
     }
 
-    static class UserInterface implements Notifiable {
+    static class UserInterface<T extends Comparable<T>> implements Notifiable {
 
         final Client client;
-        final SortedPresenter presenter;
+        final SortPresenter<T> presenter;
 
         @Override
         public void on(Object notification) {
             Match(notification).of(
-                    VoidMatch.Case($(instanceOf(Sorted.class)), sortedList -> presenter.present(client, sortedList.document())),
+                    VoidMatch.Case($(instanceOf(Sorted.class)), (Sorted<T> sorted) -> presenter.present(client, sorted.document())),
                     VoidMatch.Case($(instanceOf(ValidationError.class)), validationError -> presenter.present(client, validationError)),
                     VoidMatch.Case($(isClientFault()), error -> presenter.presentBusinessError(client, error)),
                     DefaultIgnore()
             );
         }
 
-        UserInterface(Client client, SortedPresenter presenter) {
+        UserInterface(Client client, SortPresenter<T> presenter) {
             this.client = client;
             this.presenter = presenter;
         }

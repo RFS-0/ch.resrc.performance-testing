@@ -1,13 +1,13 @@
 package ch.resrc.testing.use_cases.sort.ports.inbound;
 
-import ch.resrc.testing.use_cases.sort.ports.outbound.SortedPresenter;
+import ch.resrc.testing.use_cases.sort.ports.outbound.SortPresenter;
 import ch.resrc.testing.use_cases.support.outbound_ports.authentication.Client;
 
 import java.util.List;
 
-public interface Sort<T extends Comparable<T>> {
+public interface Sort {
 
-    void invoke(Input<T> input, SortedPresenter presenter);
+    <T extends Comparable<T>> void invoke(Input<T> input, SortPresenter<T> presenter);
 
         class Input<T> {
 

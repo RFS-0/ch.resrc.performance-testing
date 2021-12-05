@@ -2,7 +2,7 @@ package ch.resrc.testing.domain.value_objects;
 
 import ch.resrc.testing.capabilities.result.Result;
 import ch.resrc.testing.capabilities.validation.*;
-import ch.resrc.testing.domain.IdSequence;
+import ch.resrc.testing.domain.*;
 import ch.resrc.testing.domain.error_handling.DomainProblemDetected;
 
 import java.util.*;
@@ -11,7 +11,7 @@ import static ch.resrc.testing.capabilities.validation.ValidationErrorModifier.c
 import static ch.resrc.testing.capabilities.validation.Validations.*;
 import static ch.resrc.testing.domain.validation.DomainValidations.invariantViolated;
 
-public class ClientId {
+public class ClientId extends DomainPrimitive<ClientId, String> {
 
     private final UUID value;
 
@@ -33,6 +33,11 @@ public class ClientId {
 
 public static ClientId of(String literal) throws DomainProblemDetected {
         return ClientId.resultOf(literal).getOrThrow(invariantViolated());
+    }
+
+    @Override
+    protected String getPrimitiveValue() {
+        return value.toString();
     }
 
     protected UUID getValue() {

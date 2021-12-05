@@ -13,7 +13,7 @@ public class Sorted<T> extends Event {
         this.document = document;
     }
 
-    public static Sorted<?> of(List<?> sortedList) {
+    public static <T> Sorted<T> of(List<T> sortedList) {
         return new Sorted<>(new SortedDocument<>(sortedList));
     }
 
