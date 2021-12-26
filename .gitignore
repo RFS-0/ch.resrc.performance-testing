@@ -8,6 +8,9 @@ out/
 .idea/**/dictionaries
 .idea/**/shelf
 
+# Plugins
+/.idea/jpa-buddy.xml
+
 # Generated files
 .idea/**/contentModel.xml
 
