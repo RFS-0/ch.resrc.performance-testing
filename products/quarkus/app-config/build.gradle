@@ -1,0 +1,17 @@
+plugins {
+    id 'io.quarkus'
+    id 'org.kordamp.gradle.jandex' version '0.11.0'
+}
+
+dependencies {
+    implementation project(':capabilities')
+    implementation project(':domain')
+    implementation project(':use-cases')
+
+    implementation project(':adapters:rest')
+    implementation project(':adapters:rest:quarkus')
+
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+
+    api 'io.quarkus:quarkus-arc'
+}

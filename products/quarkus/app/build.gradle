@@ -1,0 +1,26 @@
+plugins {
+    id 'io.quarkus'
+}
+
+dependencies {
+    implementation project(':products:quarkus:app-config')
+
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+
+    testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.rest-assured:rest-assured'
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+quarkusDev {
+    dependsOn quarkusBuild
+    dependsOn test
+}
