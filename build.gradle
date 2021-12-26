@@ -25,6 +25,12 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
 
     dependencyManagement {
+        imports {
+            // If Spring Boot is used in one of the concrete applications, ensure that libraries used by non-Spring modules
+            // of this project match the Spring Boot version. This is particularly important for the io.projectreactor
+            // library if Spring Webflux is used in the application.
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+        }
         dependencies {
             dependency 'com.google.code.gson:gson:2.8.6'
             dependency 'com.google.guava:guava:28.0-jre'

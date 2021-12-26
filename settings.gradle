@@ -3,6 +3,9 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+    plugins {
+        id "${quarkusPluginId}" version "${quarkusPluginVersion}"
+    }
 }
 
 include 'documentation'
