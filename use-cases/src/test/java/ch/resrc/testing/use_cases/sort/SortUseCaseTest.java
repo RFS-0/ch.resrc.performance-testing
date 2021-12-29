@@ -1,11 +1,11 @@
 package ch.resrc.testing.use_cases.sort;
 
-import ch.resrc.testing.domain.value_objects.ClientId;
+import ch.resrc.testing.capabilities.authentication.*;
+import ch.resrc.testing.domain.RedBlackTreeSorter;
 import ch.resrc.testing.test_capabilities.adapters.testdoubles.TestSortPresenter;
 import ch.resrc.testing.test_capabilities.habits.use_cases.*;
 import ch.resrc.testing.test_capabilities.testbed.TestBed;
 import ch.resrc.testing.use_cases.sort.ports.inbound.Sort;
-import ch.resrc.testing.use_cases.support.outbound_ports.authentication.Client;
 import org.junit.jupiter.api.*;
 
 import java.util.List;
@@ -29,14 +29,14 @@ class SortUseCaseTest
                         .client(Client.of(ClientId.of("e5e81b85-0f2f-43a1-b59a-63fcbc7eeab0")))
                         .toBeSorted(List.of(10, 1, 6, 5, 7, 2, 8, 3, 4, 9))
                         .asInput();
-                var useCase = newSortUseCase();
-                var presenter = new TestSortPresenter<Integer>();
+                var useCase = newSortUseCase(new RedBlackTreeSorter());
+                var presenter = new TestSortPresenter();
 
                 // when:
                 useCase.invoke(input, presenter);
 
                 // then
-                List<Integer> presentedList = presenter.presented().sortedList();
+                List<?> presentedList = presenter.presented().sortedList();
                 assertThat(presentedList).isEqualTo(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
             }};
         }
@@ -48,8 +48,8 @@ class SortUseCaseTest
                     .client(Client.of(ClientId.of("e5e81b85-0f2f-43a1-b59a-63fcbc7eeab0")))
                     .toBeSorted(List.of(10, 1, 6, 5, 7, 2, 8, 3, 4, 9))
                     .asInput();
-            var useCase = newSortUseCase();
-            var presenter = new TestSortPresenter<Integer>();
+            var useCase = newSortUseCase(new RedBlackTreeSorter());
+            var presenter = new TestSortPresenter();
 
             // when:
             useCase.invoke(input, presenter);
@@ -57,7 +57,7 @@ class SortUseCaseTest
             // then
             Client client = presenter.client();
             assertThat(client.id()).isEqualTo(ClientId.of("e5e81b85-0f2f-43a1-b59a-63fcbc7eeab0"));
-            List<Integer> presentedList = presenter.presented().sortedList();
+            List<?> presentedList = presenter.presented().sortedList();
             assertThat(presentedList).isEqualTo(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         }
     }

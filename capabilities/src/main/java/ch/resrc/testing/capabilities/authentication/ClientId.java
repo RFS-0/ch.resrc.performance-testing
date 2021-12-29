@@ -1,17 +1,15 @@
-package ch.resrc.testing.domain.value_objects;
+package ch.resrc.testing.capabilities.authentication;
 
 import ch.resrc.testing.capabilities.result.Result;
 import ch.resrc.testing.capabilities.validation.*;
-import ch.resrc.testing.domain.*;
-import ch.resrc.testing.domain.error_handling.DomainProblemDetected;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.*;
+import java.util.UUID;
 
 import static ch.resrc.testing.capabilities.validation.ValidationErrorModifier.context;
 import static ch.resrc.testing.capabilities.validation.Validations.*;
-import static ch.resrc.testing.domain.validation.DomainValidations.invariantViolated;
 
-public class ClientId extends DomainPrimitive<ClientId, String> {
+public class ClientId {
 
     private final UUID value;
 
@@ -31,11 +29,10 @@ public class ClientId extends DomainPrimitive<ClientId, String> {
         return validation().applyTo(literal).map(ClientId::new);
     }
 
-public static ClientId of(String literal) throws DomainProblemDetected {
-        return ClientId.resultOf(literal).getOrThrow(invariantViolated());
+    public static ClientId of(String literal) throws InvalidInputDetected {
+        return ClientId.resultOf(literal).getOrThrow(InvalidInputDetected::of);
     }
 
-    @Override
     protected String getPrimitiveValue() {
         return value.toString();
     }
@@ -44,10 +41,23 @@ public static ClientId of(String literal) throws DomainProblemDetected {
         return value;
     }
 
-    public interface Sequence extends IdSequence<ClientId> {
+    @Override
+    public String toString() {
+        return value.toString();
+    }
 
-        Sequence RANDOM = () -> ClientId.of(UUID.randomUUID().toString());
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        ClientId nextId();
+        ClientId clientId = (ClientId) o;
+
+        return value.equals(clientId.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return value.hashCode();
     }
 }

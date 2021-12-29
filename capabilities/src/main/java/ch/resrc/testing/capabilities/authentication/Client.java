@@ -1,6 +1,5 @@
-package ch.resrc.testing.use_cases.support.outbound_ports.authentication;
+package ch.resrc.testing.capabilities.authentication;
 
-import ch.resrc.testing.domain.value_objects.ClientId;
 
 public interface Client {
 

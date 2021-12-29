@@ -1,19 +1,19 @@
 package ch.resrc.testing.domain.habits;
 
-import ch.resrc.testing.domain.BasicBubbleSort;
+import ch.resrc.testing.domain.RedBlackTreeSorter;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-class BasicBubbleSortTest {
+class RedBlackTreeSorterTest {
 
     @Test
     void unsortedList_apply_sortedList() {
         // given:
         List<Integer> unsorted = List.of(5, 4, 3, 2, 1);
-        BasicBubbleSort<Integer> sort = new BasicBubbleSort<>();
+        RedBlackTreeSorter sort = new RedBlackTreeSorter();
 
         // when:
         List<Integer> sorted = sort.apply(unsorted);
@@ -26,7 +26,7 @@ class BasicBubbleSortTest {
     void sortedList_apply_sortedList() {
         // given:
         List<Integer> alreadySorted = List.of(1, 2, 3, 4, 5);
-        BasicBubbleSort<Integer> sort = new BasicBubbleSort<>();
+        RedBlackTreeSorter sort = new RedBlackTreeSorter();
 
         // when:
         List<Integer> sorted = sort.apply(alreadySorted);
@@ -34,4 +34,5 @@ class BasicBubbleSortTest {
         // then:
         assertThat(sorted).isEqualTo(List.of(1, 2, 3, 4, 5));
     }
+
 }

@@ -3,4 +3,6 @@ dependencies {
     api 'com.google.code.gson:gson'
     api 'io.vavr:vavr'
     api 'org.apache.commons:commons-lang3'
+
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 }

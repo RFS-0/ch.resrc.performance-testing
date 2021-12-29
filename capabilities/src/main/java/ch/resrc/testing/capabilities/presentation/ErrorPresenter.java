@@ -1,7 +1,8 @@
-package ch.resrc.testing.use_cases.support.outbound_ports.presentation;
+package ch.resrc.testing.capabilities.presentation;
 
+import ch.resrc.testing.capabilities.authentication.Client;
 import ch.resrc.testing.capabilities.error_handling.BusinessError;
-import ch.resrc.testing.use_cases.support.outbound_ports.authentication.Client;
+import ch.resrc.testing.capabilities.validation.ValidationError;
 
 /**
  * Presents errors to clients.

@@ -8,4 +8,5 @@ package ch.resrc.testing.capabilities.error_handling;
 public interface BusinessError {
 
     ProblemDetected asException();
+
 }

@@ -1,9 +1,9 @@
 package ch.resrc.testing.test_capabilities.adapters.testdoubles;
 
+import ch.resrc.testing.capabilities.authentication.Client;
 import ch.resrc.testing.capabilities.error_handling.*;
+import ch.resrc.testing.capabilities.presentation.ErrorPresenter;
 import ch.resrc.testing.capabilities.result.Result;
-import ch.resrc.testing.use_cases.support.outbound_ports.authentication.Client;
-import ch.resrc.testing.use_cases.support.outbound_ports.presentation.ErrorPresenter;
 import org.apache.commons.lang3.builder.*;
 
 import java.util.*;

@@ -1,7 +1,7 @@
 package ch.resrc.testing.test_capabilities.habits.use_cases;
 
+import ch.resrc.testing.capabilities.authentication.Client;
 import ch.resrc.testing.use_cases.sort.ports.inbound.Sort;
-import ch.resrc.testing.use_cases.support.outbound_ports.authentication.Client;
 
 import java.util.List;
 import java.util.function.Consumer;

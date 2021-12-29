@@ -1,19 +1,19 @@
 package ch.resrc.testing.domain.habits;
 
-import ch.resrc.testing.domain.OptimalBubbleSort;
+import ch.resrc.testing.domain.BasicBubbleSorter;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-class OptimalBubbleSortTest {
+class BasicBubbleSorterTest {
 
     @Test
     void unsortedList_apply_sortedList() {
         // given:
         List<Integer> unsorted = List.of(5, 4, 3, 2, 1);
-        OptimalBubbleSort<Integer> sort = new OptimalBubbleSort<>();
+        BasicBubbleSorter sort = new BasicBubbleSorter();
 
         // when:
         List<Integer> sorted = sort.apply(unsorted);
@@ -26,7 +26,7 @@ class OptimalBubbleSortTest {
     void sortedList_apply_sortedList() {
         // given:
         List<Integer> alreadySorted = List.of(1, 2, 3, 4, 5);
-        OptimalBubbleSort<Integer> sort = new OptimalBubbleSort<>();
+        BasicBubbleSorter sort = new BasicBubbleSorter();
 
         // when:
         List<Integer> sorted = sort.apply(alreadySorted);
