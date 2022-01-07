@@ -1,18 +1,17 @@
-package ch.resrc.testing.products.quarkus.app_config.problem;
-
+package ch.resrc.testing.products.spring_boot.app_config.adapters.problem;
 
 import ch.resrc.testing.adapters.rest.errorhandling.RestProblem;
 import ch.resrc.testing.capabilities.error_handling.*;
 import ch.resrc.testing.domain.error_handling.DomainProblem;
 import ch.resrc.testing.use_cases.support.habits.errorhandling.UseCaseProblem;
+import org.springframework.stereotype.Component;
 
-import javax.enterprise.context.ApplicationScoped;
 import java.util.*;
 
 import static ch.resrc.testing.capabilities.error_handling.ProblemCode.code;
 import static java.util.Map.entry;
 
-@ApplicationScoped
+@Component
 public class TestingProblemCatalogue implements ProblemCatalogue {
 
     static final List<Map.Entry<Problem, ProblemCode>> codeCatalogue = List.of(

@@ -1,0 +1,17 @@
+plugins {
+    id "org.springframework.boot" version "${springBootVersion}"
+}
+
+bootJar {
+    enabled = true
+}
+
+bootRun {
+    systemProperties System.properties
+}
+
+dependencies {
+    implementation project(':products:spring-boot:app-config')
+
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.3'
+}

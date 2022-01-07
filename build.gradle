@@ -40,7 +40,7 @@ subprojects {
             // testing
             dependency 'org.junit.jupiter:junit-jupiter:5.5.2'
             dependency 'org.assertj:assertj-core:3.11.1'
-            dependency 'io.rest-assured:rest-assured:3.0.7'
+            dependency 'io.rest-assured:rest-assured:4.4.0'
             dependency 'org.mockito:mockito-core:2.19.0'
             dependency 'org.hamcrest:hamcrest-core:2.2'
             dependency 'org.hamcrest:hamcrest:2.2'

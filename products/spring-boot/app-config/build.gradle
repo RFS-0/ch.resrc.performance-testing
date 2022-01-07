@@ -1,0 +1,12 @@
+dependencies {
+
+    implementation project(':capabilities')
+    implementation project(':domain')
+    implementation project(':use-cases')
+
+    implementation project(':adapters:rest')
+    implementation project(':adapters:rest:spring-boot')
+
+    api "org.springframework.boot:spring-boot-starter"
+
+}

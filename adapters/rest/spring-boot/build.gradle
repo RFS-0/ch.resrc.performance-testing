@@ -5,6 +5,7 @@ dependencies {
     implementation project(':adapters:rest')
 
     api 'org.springframework.boot:spring-boot-starter-web'
+    api 'org.springdoc:springdoc-openapi-ui:1.6.3'
 
     implementation 'com.google.guava:guava'
     implementation 'org.springframework.boot:spring-boot-starter'

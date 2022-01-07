@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+logging:
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSSXXX, CET
+  level:
+    org:
+      springframework: DEBUG
+    codebereitschaft: INFO
+  file:
+    name: build/logs/testing-server.log
+

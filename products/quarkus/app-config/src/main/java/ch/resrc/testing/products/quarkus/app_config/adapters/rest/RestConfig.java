@@ -1,4 +1,4 @@
-package ch.resrc.testing.products.quarkus.app_config.rest;
+package ch.resrc.testing.products.quarkus.app_config.adapters.rest;
 
 import ch.resrc.testing.capabilities.json.*;
 
