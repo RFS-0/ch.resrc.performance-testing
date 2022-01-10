@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(produces = "application/json")
+@RequestMapping(path = "/sort", produces = "application/json")
 public class SortResource {
 
     Logger logger = LoggerFactory.getLogger(SortResource.class);
