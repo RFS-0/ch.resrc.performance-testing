@@ -10,8 +10,12 @@ dependencies {
 
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
 
-    api 'io.quarkus:quarkus-resteasy-reactive'
-    api 'io.quarkus:quarkus-resteasy-reactive-jackson'
+    // To use RESTeasy Reactive replace the following two dependencies with these:
+    //    api 'io.quarkus:quarkus-resteasy-reactive'
+    //    api 'io.quarkus:quarkus-resteasy-reactive-jackson'
+    // and check the other RESTeasy Reactive specific comments
+    api 'io.quarkus:quarkus-resteasy'
+    api 'io.quarkus:quarkus-resteasy-jackson'
     api 'io.quarkus:quarkus-smallrye-openapi'
 
     testImplementation project(':test-capabilities')

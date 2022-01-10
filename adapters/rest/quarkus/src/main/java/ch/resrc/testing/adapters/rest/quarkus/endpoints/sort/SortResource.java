@@ -9,7 +9,6 @@ import ch.resrc.testing.capabilities.authentication.Client;
 import ch.resrc.testing.capabilities.error_handling.ProblemCatalogue;
 import ch.resrc.testing.capabilities.json.*;
 import ch.resrc.testing.use_cases.sort.ports.inbound.Sort;
-import io.smallrye.mutiny.Uni;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
 import javax.ws.rs.*;
@@ -43,15 +42,22 @@ public class SortResource {
         useCaseTry = new UseCaseTry(System.out::println);
     }
 
+    /**
+     * When using RESTEasy Reactive do the following:
+     * <ul>
+     *     <li>Return <pre>{@code Uni<Response>}</pre> instead of <pre>{@code Response}</pre></li>
+     *     <li>Wrap use case execution in <pre>{@code Uni.createFrom().item(<useCaseTry...>}</pre> }</pre></li>
+     * </ul>
+     */
     @POST
     @Path("basic-bubble-sort")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Uni<Response> basicBubbleSort(@RequestBody JsonBody<UnsortedListDto> unsortedList) {
-        return Uni.createFrom().item(useCaseTry
+    public Response basicBubbleSort(@RequestBody JsonBody<UnsortedListDto> unsortedList) {
+        return useCaseTry
                 .withInput(new SortInput(Client.anonymous(), unsortedList))
                 .withOutput(new SortedResponse(201, problemCatalogue, json))
                 .invoke((input, output) -> basicBubbleSort.invoke(input.input(), output))
-                .asResponseEntity());
+                .asResponseEntity();
     }
 
     @POST
