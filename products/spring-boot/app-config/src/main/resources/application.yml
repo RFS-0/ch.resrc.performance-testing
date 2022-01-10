@@ -12,8 +12,9 @@ logging:
     dateformat: yyyy-MM-dd HH:mm:ss.SSSXXX, CET
   level:
     org:
-      springframework: DEBUG
-    codebereitschaft: INFO
+      springframework: INFO
+    ch:
+      resrc: INFO
   file:
     name: build/logs/testing-server.log
 

@@ -11,7 +11,7 @@ public class TestingApp {
 
     public static void main(String[] args) {
         new SpringApplicationBuilder()
-                .logStartupInfo(false)
+                .logStartupInfo(true)
                 .sources(TestingConfig.class)
                 .run(args);
     }
