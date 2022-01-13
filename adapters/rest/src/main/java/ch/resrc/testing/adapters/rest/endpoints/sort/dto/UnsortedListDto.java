@@ -9,4 +9,8 @@ public class UnsortedListDto {
     public UnsortedListDto() {
         // for JSON deserialization
     }
+
+    public UnsortedListDto(List<Integer> unsorted) {
+        this.unsorted = unsorted;
+    }
 }
