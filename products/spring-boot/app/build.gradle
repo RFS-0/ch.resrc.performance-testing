@@ -1,9 +1,15 @@
 plugins {
     id "org.springframework.boot" version "${springBootVersion}"
+    id 'application'
+}
+
+jar {
+    enabled = false
 }
 
 bootJar {
     enabled = true
+    archivesBaseName = "spring-boot-app-${project.version}"
 }
 
 bootRun {
@@ -14,4 +20,9 @@ dependencies {
     implementation project(':products:spring-boot:app-config')
 
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.3'
+}
+
+application {
+    mainClass = 'ch.resrc.testing.products.spring_boot.app.TestingApp'
+    applicationDefaultJvmArgs = ['-Xms4G', '-Xmx4G', '-Dspring.profiles.active=prod']
 }
