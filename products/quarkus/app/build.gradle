@@ -20,6 +20,16 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
+quarkusBuild {
+    nativeArgs {
+        // Uncomment to build with docker instead of GraalVM (built image is a linux image)
+        //containerBuild = true
+        builderImage = "quay.io/quarkus/ubi-quarkus-native-image:21.3.0-java17"
+        additionalBuildArgs = '--verbose'
+        nativeImageXmx = '8g'
+    }
+}
+
 quarkusDev {
     dependsOn quarkusBuild
     dependsOn test
