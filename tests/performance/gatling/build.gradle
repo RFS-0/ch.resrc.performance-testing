@@ -1,0 +1,16 @@
+plugins {
+    id 'io.gatling.gradle' version '3.7.3'
+}
+
+dependencies {
+    gatling project(':capabilities')
+    gatling project(':adapters:rest')
+}
+
+gatling {
+    logLevel = 'INFO'
+    logHttp = 'NONE'
+    simulations {
+        include "**/*Simulation.java"
+    }
+}

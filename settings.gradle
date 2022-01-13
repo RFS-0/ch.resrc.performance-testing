@@ -27,3 +27,6 @@ include 'products:spring-boot'
 include 'products:spring-boot:app'
 include 'products:spring-boot:app-config'
 
+include 'tests'
+include 'tests:performance'
+include 'tests:performance:gatling'
