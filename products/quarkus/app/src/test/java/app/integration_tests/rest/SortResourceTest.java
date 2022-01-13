@@ -56,7 +56,7 @@ class SortResourceTest {
                         }
                         """)
                 .when()
-                .post("/sort/red-black-tree")
+                .post("/sort/red-black-tree-sort")
                 .then()
                 .assertThat()
                 .statusCode(201)

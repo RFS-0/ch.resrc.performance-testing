@@ -72,7 +72,7 @@ public class SortResource {
     }
 
     @POST
-    @Path("red-black-tree")
+    @Path("red-black-tree-sort")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response redBlackTreeSort(JsonBody<UnsortedListDto> unsortedList) {
         return useCaseTry
