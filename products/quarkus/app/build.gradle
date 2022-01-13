@@ -1,5 +1,6 @@
 plugins {
     id 'io.quarkus'
+    id 'application'
 }
 
 dependencies {
@@ -33,4 +34,9 @@ quarkusBuild {
 quarkusDev {
     dependsOn quarkusBuild
     dependsOn test
+}
+
+application {
+    mainClass = 'ch.resrc.testing.products.quarkus.app.TestingApp'
+    applicationDefaultJvmArgs = ['-Xms4G', '-Xmx4G', '-Dquarkus.profile=prod']
 }
