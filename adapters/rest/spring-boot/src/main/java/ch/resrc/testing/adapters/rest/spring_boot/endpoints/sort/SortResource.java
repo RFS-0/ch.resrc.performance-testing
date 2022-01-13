@@ -31,9 +31,9 @@ public class SortResource {
     @Autowired
     public SortResource(Json json,
                         ProblemCatalogue problemCatalogue,
-                        @Qualifier("red-black-tree-sort") Sort basicBubbleSort,
-                        @Qualifier("basic-bubble-sort") Sort optimizedBubbleSort,
-                        @Qualifier("optimized-bubble-sort") Sort redBlackTreeSort) {
+                        @Qualifier("basic-bubble-sort") Sort basicBubbleSort,
+                        @Qualifier("optimized-bubble-sort") Sort optimizedBubbleSort,
+                        @Qualifier("red-black-tree-sort") Sort redBlackTreeSort) {
         this.json = json;
         this.problemCatalogue = problemCatalogue;
 
