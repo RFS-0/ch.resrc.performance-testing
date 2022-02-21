@@ -14,6 +14,7 @@ out/
 
 # Generated files
 .idea/**/contentModel.xml
+.idea/kotlinc.xml
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
