@@ -1,0 +1,47 @@
+== Understanding and Applying Behavior Driven Development
+
+In this chapter we explain the idea and methods of behavior driven development [BDD].
+Furthermore, we apply BDD with Gherkin and Cucumber.
+
+Delivering business value is at the core of what BDD is about, see e.g. <<bdd-in-action>>.
+To do so the following questions must be addressed <<bdd-in-action>>:
+
+* Why is the software being built (what is the project’s vision statement)?
+* How will the project deliver value to the organization (what are the project’s
+business goals)?
+* What stakeholders are involved in the project, and how will the project affect them?
+* What high-level capabilities should the software provide for stakeholders to enable
+them to achieve their business goals more effectively?
+
+The following techniques address these questions according to <<bdd-in-action>>:
+
+* Feature Injection
+* Impact Mapping
+* Purpose-Based Alignment model
+
+We explain and apply these techniques in the following chapters.
+
+=== Understanding and Applying Feature Injection
+
+Feature Injection is a business analysis process framework <<feature-injection>>.
+It focuses on delivering business value and ensures that a team only builds features and projects that deliver value, avoiding the wastes of scope creep and just-in-case code.
+It allows teams to exploit the value of the traditional business analysis techniques in agile projects.
+
+Feature Injection is defined as a three-step process consisting of the following steps <<feature-injection>>:
+
+1. Hunt the value
+2. Inject the features
+3. Spot the examples
+
+
+
+
+[source, shell script]
+----
+FOR all programmers
+WHO are interested software with a maximum of evidence for their correctness
+THIS repository is a collection of methodologies and examples on how software can be tested
+THAT enables every programmer to understand and apply the most important concepts for testing software
+UNLIKE other resources on this subject
+THIS REPO provides the theoretical foundations as well as practical examples of the theory
+----

@@ -3,4 +3,6 @@
 [bibliography]
 = References
 
-* [[jp, {counter:bibidx}]][{bibidx}] Oaks, Scott. Java Performance. O'Reilly Media.
+* [[[feature-injection, 1]]] Adzic, Gojko & Matts, Chris. Feature Injection: three steps to success. Retrieved from: https://www.infoq.com/articles/feature-injection-success
+* [[[bdd-in-action, 2]]] Smart, John Ferguson. BDD In Action. Manning Publications Co.
+* [[[java-performance, 3]]] Oaks, Scott. Java Performance. O'Reilly Media.

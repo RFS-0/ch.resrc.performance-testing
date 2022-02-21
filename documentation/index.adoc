@@ -5,6 +5,7 @@
 :sectanchors:
 
 include::introduction.adoc[]
+include::behavior-driven-development.adoc[]
 include::performance_testing.adoc[]
 
 include::bibliography.adoc[]
