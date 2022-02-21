@@ -17,7 +17,7 @@ In order to figure out which category fits best to our need, we take a closer lo
 
 === What is a Microbenchmark?
 A microbenchmark can be defined as follows:
-[quote, Scott Oaks, '<<jp, Java Performance>>']
+[quote, Scott Oaks, '<<java-performance, Java Performance>>']
 ____
 A microbenchmark is a test designed to measure a small unit of performance in order to decide which of multiple alternate implementations is preferable:
 the overhead in creating a thread versus using a thread pool, the time to execute one arithmetic algorithm versus an alternate implementation, and so on.
