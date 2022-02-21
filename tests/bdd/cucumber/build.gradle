@@ -1,0 +1,29 @@
+dependencies {
+    implementation project(':capabilities')
+    testImplementation project(':domain')
+    testImplementation project(':test-capabilities')
+
+    testImplementation 'io.cucumber:cucumber-java8:7.2.3'
+    testImplementation 'io.cucumber:cucumber-junit:7.2.3'
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+task behaviorDrivenTests() {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = [
+                '--glue', 'bdd', 'src/test/resources',
+                '--plugin',"pretty",
+                '--plugin',"html:${project.buildDir}/reports/acceptanceTests.html",
+            ]
+        }
+    }
+}
